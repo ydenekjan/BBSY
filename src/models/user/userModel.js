@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 
 const userSchema = new mongoose.Schema({
   fullName: {
@@ -34,9 +34,9 @@ userSchema.statics.login = async function (username, password) {
     if (auth) {
       return user;
     }
-    throw Error('incorrect password')
+    throw Error("incorrect password");
   }
-  throw Error('incorrect password')
+  throw Error("incorrect password");
 };
 
 const User = mongoose.model("User", userSchema);
