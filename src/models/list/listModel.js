@@ -1,11 +1,23 @@
 import mongoose from "mongoose";
 
 const listSchema = new mongoose.Schema({
-  listName: { type: String, required: true },
+  listName: { type: String, default: "Seznam bez názvu" },
   dateCreated: { type: String },
   author: { type: String },
-  members: { type: Array },
-  items: { type: Array },
+  items: {
+    type: [
+      {
+        itemName: { type: String, required: true },
+        completed: { type: Boolean, default: false },
+      },
+    ],
+    default: [],
+  },
+  members: {
+    type: [String],
+    default: [],
+  },
+  archived: { type: Boolean },
 });
 
 const List = mongoose.model("List", listSchema);

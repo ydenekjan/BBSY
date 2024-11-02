@@ -4,9 +4,6 @@ import { createToken, maxAge } from "../../../helpers/authHelper.js";
 export const createUser = async (req, res) => {
   try {
     const user = new User(req.body);
-
-    console.log(user);
-
     // Attempt to save the user to the database
     await user.save();
 

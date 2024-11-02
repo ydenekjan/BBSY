@@ -1,12 +1,13 @@
 import express from "express";
 import listRouter from "./list/listRoute.js";
 import userRouter from "./user/userRoute.js";
-import cookiesRouter from "./cookies/cookieRoute.js";
+import { checkUser } from "../helpers/authHelper.js";
 
 const router = express.Router();
 
-router.use("/list", listRouter);
-router.use("/user", userRouter);
-router.use("/cookies", cookiesRouter);
+router.use("*", checkUser);
+
+router.use("/lists", listRouter);
+router.use("/users", userRouter);
 
 export default router;
