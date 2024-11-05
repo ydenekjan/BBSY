@@ -8,6 +8,7 @@ import { addMember } from "./post/addMember.js";
 import { addItem } from "./post/addItem.js";
 import { removeItem } from "./post/removeItem.js";
 import { updateItem } from "./post/updateItem.js";
+import { removeMember } from "./post/removeMember.js";
 
 export {
   createList,
@@ -20,4 +21,5 @@ export {
   addItem,
   removeItem,
   updateItem,
+  removeMember,
 };

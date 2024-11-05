@@ -7,6 +7,7 @@ import {
   getCurrentUserLists,
   getList,
   removeItem,
+  removeMember,
   updateItem,
   updateList,
 } from "../../controllers/list/index.js";
@@ -21,6 +22,7 @@ listRouter.get("/:listId", getList);
 listRouter.post("/", createList);
 listRouter.post("/:listId/edit", updateList);
 listRouter.post("/:listId/addMember", addMember);
+listRouter.post("/:listId/removeMember", removeMember);
 listRouter.post("/:listId/addItem", addItem);
 listRouter.post("/:listId/removeItem", removeItem);
 listRouter.post("/:listId/updateItem", updateItem);
