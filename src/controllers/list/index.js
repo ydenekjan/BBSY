@@ -4,6 +4,10 @@ import { getList } from "./get/getList.js";
 import { getCurrentUserLists } from "./get/getCurrentUserLists.js";
 import { updateList } from "./post/updateList.js";
 import { archiveList } from "./post/archiveList.js";
+import { addMember } from "./post/addMember.js";
+import { addItem } from "./post/addItem.js";
+import { removeItem } from "./post/removeItem.js";
+import { updateItem } from "./post/updateItem.js";
 
 export {
   createList,
@@ -12,4 +16,8 @@ export {
   getCurrentUserLists,
   updateList,
   archiveList,
+  addMember,
+  addItem,
+  removeItem,
+  updateItem,
 };

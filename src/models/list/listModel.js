@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const listSchema = new mongoose.Schema({
   listName: { type: String, default: "Seznam bez názvu" },
   dateCreated: { type: String },
-  author: { type: String },
+  author: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   items: {
     type: [
       {
@@ -13,10 +13,15 @@ const listSchema = new mongoose.Schema({
     ],
     default: [],
   },
-  members: {
-    type: [String],
-    default: [],
-  },
+  members: [
+    {
+      user: { type: mongoose.Schema.Types.ObjectId, ref: "User" }, // Reference to User model
+      permissions: {
+        members: { type: Boolean, default: false }, // Permission for members
+        edits: { type: Boolean, default: false }, // Permission for edits
+      },
+    },
+  ],
   archived: { type: Boolean },
 });
 

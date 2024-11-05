@@ -2,13 +2,20 @@ import { User } from "../../../models/index.js";
 import { createToken, maxAge } from "../../../helpers/authHelper.js";
 
 export const createUser = async (req, res) => {
+  const isProd = process.env.NODE_ENV === "production";
+
   try {
     const user = new User(req.body);
     // Attempt to save the user to the database
     await user.save();
 
     const token = createToken(user._id);
-    res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
+    res.cookie("jwt", token, {
+      httpOnly: true,
+      maxAge: maxAge * 1000,
+      sameSite: isProd ? "none" : "lax",
+      secure: isProd,
+    });
     res.status(201).json({ user: user._id });
   } catch (error) {
     // Check if the error is a validation error

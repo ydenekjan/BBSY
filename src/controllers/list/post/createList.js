@@ -9,7 +9,7 @@ export const createList = async (req, res) => {
       members: req.body.members,
       items: req.body.items,
       dateCreated: dayjs().format(),
-      author: res.locals.user.fullName,
+      author: res.locals.user._id,
     });
 
     // Attempt to save the user to the database

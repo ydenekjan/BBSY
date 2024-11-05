@@ -7,7 +7,7 @@ export const getCurrentUserLists = async (req, res) => {
       return;
     }
 
-    const user = res.locals.user.fullName;
+    const user = res.locals.user._id;
 
     const lists = await List.find({
       $or: [
@@ -15,10 +15,16 @@ export const getCurrentUserLists = async (req, res) => {
           author: user,
         },
         {
-          members: { $in: [user] },
+          members: { $elemMatch: { user: user } },
         },
       ],
-    });
+    })
+      .populate({
+        path: "author",
+      })
+      .populate({
+        path: "members.user",
+      });
     res.status(200).json(lists);
   } catch (error) {
     console.error("Error fetching lists:", error);
