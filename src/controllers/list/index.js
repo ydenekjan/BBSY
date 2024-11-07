@@ -9,6 +9,7 @@ import { addItem } from "./post/addItem.js";
 import { removeItem } from "./post/removeItem.js";
 import { updateItem } from "./post/updateItem.js";
 import { removeMember } from "./post/removeMember.js";
+import { removeCurrentMember } from "./post/removeCurrentMember.js";
 
 export {
   createList,
@@ -22,4 +23,5 @@ export {
   removeItem,
   updateItem,
   removeMember,
+  removeCurrentMember,
 };
