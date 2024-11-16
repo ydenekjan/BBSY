@@ -4,6 +4,7 @@ import {
   addMember,
   archiveList,
   createList,
+  deleteList,
   getCurrentUserLists,
   getList,
   removeCurrentMember,
@@ -31,5 +32,6 @@ listRouter.post("/:listId/updateItem", updateItem);
 listRouter.post("/:listId/archive", archiveList);
 
 //DELETE
+listRouter.delete("/:listId", deleteList);
 
 export default listRouter;

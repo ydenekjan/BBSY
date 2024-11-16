@@ -5,7 +5,7 @@ export const createList = async (req, res) => {
   try {
     const list = new List({
       listName: req.body.listName,
-      archived: false,
+      archived: req.body.archived,
       members: req.body.members,
       items: req.body.items,
       dateCreated: dayjs().format(),

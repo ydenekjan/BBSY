@@ -7,10 +7,6 @@ export const updateItem = async (req, res) => {
 
   const itemUpdates = req.body; // Extract updated item data from request body
 
-  console.log("Updating List ID:", listId);
-  console.log("Item ID:", itemId);
-  console.log("Item Updates:", itemUpdates);
-
   try {
     // Validate ObjectId format
     if (

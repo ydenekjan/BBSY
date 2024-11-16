@@ -5,8 +5,6 @@ export const loginUser = async (req, res) => {
   const { username, password } = req.body;
   const isProd = process.env.NODE_ENV === "production";
 
-  console.log(username, password);
-
   try {
     const user = await User.login(username, password);
     const token = createToken(user._id);

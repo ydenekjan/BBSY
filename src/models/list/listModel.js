@@ -22,7 +22,7 @@ const listSchema = new mongoose.Schema({
       },
     },
   ],
-  archived: { type: Boolean },
+  archived: { type: Boolean, default: false },
 });
 
 const List = mongoose.model("List", listSchema);
